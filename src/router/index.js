@@ -1,22 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import SignPage from '@/views/SignPage'
+import AidSign from '@/views/AidSign'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home
+    name: 'sign_page',
+    component: SignPage
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/aid_sign',
+    name: 'aid_sign',
+    component: AidSign
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/Login')
+  },
+  {
+    path: '/my_welfare',
+    name: 'my_welfare',
+    component: () => import('@/views/MyWelfare')
+  },
+  {
+    path: '/store_list',
+    name: 'store_list',
+    component: () => import('@/views/StoreList')
+  },
+  {
+    path: '/welfare_exchange',
+    name: 'welfare_exchange',
+    component: () => import('@/views/WelfareExchange')
   }
 ]
 
