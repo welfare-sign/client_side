@@ -5,10 +5,10 @@
         <x-img :default-src="avatar" class="avatar" />
         <h2>欢迎 James</h2>
       </div>
-      <div class="btn">
+      <button class="btn" @click="toWelfare">
         <x-img class="icon-gift" :default-src="iconGift"/>
         <span>我的福利</span>
-      </div>
+      </button>
     </div>
   </div>
 </template>
@@ -19,13 +19,22 @@
  */
 export default {
   name: 'UserInfo',
-  computed: {
-      avatar () {
-          return require('@/assets/avatar.jpg')
-      },
-      iconGift () {
-        return require('@/assets/icon_gift.png')
-      }
+  data () {
+    return {
+      avatar: require('@/assets/avatar.jpg'),
+      iconGift: require('@/assets/icon_gift.png')
+    }
+  },
+  methods: {
+    toWelfare() {
+      /**
+       * @description 我的福利点击事件的返回函数
+       *  - 跳转到我的福利列表页面
+       * @return (void)
+       */
+      window.console.log('点击了我的福利')
+      this.$router.push({name: 'my_welfare'})
+    }
   }
 }
 </script>
@@ -34,7 +43,7 @@ export default {
 .user-info {
   position: absolute;
   left: 0;
-  top: 0;
+  top: -72px;
   width: 100%;
   height: 160px;
   color: #fff;
@@ -67,6 +76,8 @@ export default {
   line-height: 1.2;
   display: flex;
   align-items: center;
+  border: none;
+  color: #fff;
 }
 .icon-gift {
   width: 16px;

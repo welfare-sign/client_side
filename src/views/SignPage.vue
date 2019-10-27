@@ -25,9 +25,8 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-@import url('../styles/variables.less');
+@import url('../styles/variables');
 .sign-page {
-    padding-top: 72px;
     padding-left: @normal-gap;
     padding-right: @normal-gap;
     padding-bottom: 20px;

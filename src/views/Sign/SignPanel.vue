@@ -78,6 +78,7 @@ export default {
 <style lang="less" scoped>
 @import url('../../styles/variables');
 .sign-panel {
+  margin-top: 72px;
   padding: 20px @normal-gap;
   background: #fff;
 }
