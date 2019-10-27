@@ -2,6 +2,7 @@
     <div class="sign-page">
         <sign-panel />
         <user-info/>
+        <merchant-recommend/>
     </div>
 </template>
 <script>
@@ -12,12 +13,14 @@
 // 组件
 import SignPanel from './Sign/SignPanel'
 import UserInfo from './Sign/UserInfo'
+import MerchantRecommend from './Sign/MerchantRecommend'
 
 export default {
     name: 'SignPage',
     components: {
         SignPanel,
-        UserInfo
+        UserInfo,
+        MerchantRecommend
     }
 }
 </script>

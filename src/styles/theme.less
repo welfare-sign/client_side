@@ -33,4 +33,13 @@
         color: @primary-font-color;
         .primary-box-shadow();
 	}
+	.weui-cell {
+		padding: 12px @normal-gap;
+	}
+	.weui-cells {
+		margin-top: 0;
+		&::before {
+			content: none;
+		}
+	}
 }

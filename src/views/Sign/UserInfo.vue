@@ -2,10 +2,11 @@
   <div class="user-info">
     <div class="content">
       <div class="user">
-        <!-- <x-img class="avatar" /> -->
+        <x-img :default-src="avatar" class="avatar" />
         <h2>欢迎 James</h2>
       </div>
       <div class="btn">
+        <x-img class="icon-gift" :default-src="iconGift"/>
         <span>我的福利</span>
       </div>
     </div>
@@ -17,7 +18,15 @@
  * @author 顾超<beyondc@foxmail.com>
  */
 export default {
-  name: 'UserInfo'
+  name: 'UserInfo',
+  computed: {
+      avatar () {
+          return require('@/assets/avatar.jpg')
+      },
+      iconGift () {
+        return require('@/assets/icon_gift.png')
+      }
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -41,6 +50,14 @@ export default {
 }
 .user {
   margin-left: @normal-gap;
+  display: flex;
+  align-items: center;
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    margin-right: 10px;
 }
 .btn {
   padding: 10px 16px;
@@ -48,5 +65,12 @@ export default {
   border-radius: 100px 0 0 100px;
   font-size: @sub-title-font-size;
   line-height: 1.2;
+  display: flex;
+  align-items: center;
+}
+.icon-gift {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
 }
 </style>

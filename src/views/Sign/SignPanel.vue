@@ -76,9 +76,9 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+@import url('../../styles/variables');
 .sign-panel {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px @normal-gap;
   background: #fff;
 }
 header {

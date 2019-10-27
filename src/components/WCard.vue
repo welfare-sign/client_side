@@ -15,8 +15,6 @@ export default {
 <style lang="less" scoped>
 @import url('../styles/variables.less');
 .w-card {
-    padding-left: @normal-gap;
-    padding-right: @normal-gap;
     border-radius: @main-radius;
     box-shadow:0px 8px 16px 0px rgba(0,0,0,0.1);
 }

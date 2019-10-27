@@ -2,8 +2,9 @@
     <li class="w-sign-item">
         <div :class="['icon', {'disabled': !signed || missed}, {'final': final}]">
             <span class="badge" v-if="badge">{{badge}}</span>
+            <x-img class="ico-img" :default-src="icon"/>
         </div>
-        <label>{{label}}</label>
+        <label :class="{'disabled-text': !signed || missed}">{{label}}</label>
     </li>
 </template>
 <script>
@@ -42,15 +43,21 @@ export default {
                 label = false
             }
             return label
+        },
+        icon () {
+            let src
+            if (this.final) {
+                src = require('@/assets/sign_gift.png')
+            } else {
+                src = require('@/assets/sign_right.png')
+            }
+            return src
         }
     }
 }
 </script>
 <style lang="less" scoped>
 @import url('../styles/index.less');
-.w-sign-item {
-
-}
 .icon {
     width: 44px;
     height: 44px;
@@ -59,6 +66,13 @@ export default {
     .linear-gradient-horizontal();
     position: relative;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ico-img {
+    width: 22px;
+    height: 22px;
 }
 .disabled {
     position: relative;
@@ -71,6 +85,9 @@ export default {
         left: 0;
         background: rgba(255, 255, 255, 0.3);
     }
+}
+.disabled-text {
+    color: @assist-font-color
 }
 .badge {
     position: absolute;
