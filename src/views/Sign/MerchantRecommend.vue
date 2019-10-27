@@ -74,6 +74,7 @@ export default {
 <style lang="less" scoped>
 @import url('../../styles/variables.less');
 .merchant-recommend {
+  background: #fff;
   margin-top: @normal-gap;
 }
 header {
