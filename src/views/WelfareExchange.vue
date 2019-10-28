@@ -1,7 +1,7 @@
 <template>
   <div class="welfare-exchange">
     <ul class="list">
-      <li v-for="item in list" :key="item.id">
+      <li v-for="item in list" :key="item.id" @click="handleSelect(item.id)">
         <w-card class="item">
           <div class="item-content">
             <input
@@ -11,7 +11,8 @@
               :id="item.id"
               :checked="item.id === selected"
             />
-            <label :class="['w-radio-next', {'checked': item.id === selected}]" :for="item.id">
+            <label class="w-radio-next" :for="item.id">
+              <span :class="['radio-box', {'checked': item.id === selected}]"></span>
               <w-merchant-item
                 :name="item.name"
                 :address="item.address"
@@ -23,6 +24,9 @@
         </w-card>
       </li>
     </ul>
+    <footer>
+      <x-button type="primary">领取福利</x-button>
+    </footer>
   </div>
 </template>
 <script>
@@ -96,19 +100,30 @@ export default {
     }
   },
   methods: {
-    //   handleSelect() {
-    //       /**
-    //        * @description 单选框选中事件的返回函数
-    //        * @return (void)
-    //        */
-    //       this.selected 
-    //   }
+    handleSelect(id) {
+      /**
+       * @description 单选框选中事件的返回函数
+       * @return (void)
+       *
+       * @id (string): 当前商家id
+       */
+      this.selected = id
+    }
   }
 }
 </script>
 <style lang="less" scoped>
 @import url('../styles/index');
+.welfare-exchange {
+    background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
 .list {
+  flex: 1;
+  overflow: auto;
   padding: @normal-gap;
   & > li + li {
     margin-top: @assist-gap;
@@ -116,6 +131,7 @@ export default {
 }
 .item {
   padding: @assist-gap;
+  background: #fff;
 }
 .item-content {
   display: flex;
@@ -129,8 +145,7 @@ export default {
 }
 .w-radio-next {
   position: relative;
-  &::before {
-    content: '';
+  & > .radio-box {
     position: absolute;
     top: 35px;
     left: -28px;
@@ -138,14 +153,28 @@ export default {
     height: 20px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 20px;
-    // .linear-gradient-horizontal();
+    &.checked {
+      border-width: 0;
+      .linear-gradient-horizontal();
+      box-shadow: 0px 0px 3px 3px rgba(255, 141, 0, 0.4);
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../assets/sign_right.png');
+        background-position: center;
+        background-size: 60%;
+        background-repeat: no-repeat;
+      }
+    }
   }
-  &.checked::before {
-    border: none;
-    // background: url('../assets/checked.png');
-    background-origin: border-box;
-    .linear-gradient-horizontal();
-    box-shadow: 0px 0px 3px 3px rgba(255, 141, 0, 0.4);
-  }
+}
+footer {
+  height: 46px;
+  padding: 10px @normal-gap;
+  background: #fafafa;
 }
 </style>
