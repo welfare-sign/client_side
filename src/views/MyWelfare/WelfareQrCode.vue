@@ -29,7 +29,11 @@ export default {
         position: absolute;
         width: 100%;
         height: 15px;
-        background:linear-gradient(180deg,rgba(255,152,0,1) 0%,rgba(255,95,0,1) 200%);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 152, 0, 1) 0%,
+            rgba(255, 95, 0, 1) 200%
+        );
         z-index: -1;
     }
 }
@@ -38,10 +42,14 @@ h2 {
     height: 30px;
     margin: 0 auto;
     color: #fff;
-    border-radius: 0 0 18px 18px; 
+    border-radius: 0 0 18px 18px;
     line-height: 30px;
     text-align: center;
-    background:linear-gradient(180deg,rgba(255,152,0,1) 0%,rgba(255,95,0,1) 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(255, 152, 0, 1) 0%,
+        rgba(255, 95, 0, 1) 100%
+    );
     margin-bottom: @normal-gap * 2;
 }
 .qrcode {

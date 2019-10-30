@@ -1,7 +1,7 @@
 <template>
     <div class="aid-sign">
         <aid-sign-panel />
-        <merchant-recommend/>
+        <merchant-recommend />
     </div>
 </template>
 <script>
