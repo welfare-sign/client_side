@@ -9,12 +9,18 @@ const routes = [
 	{
 		path: '/',
 		name: 'sign_page',
-		component: SignPage
+		component: SignPage,
+		meta: {
+			title: '福力签'
+		}
 	},
 	{
 		path: '/aid_sign',
 		name: 'aid_sign',
-		component: AidSign
+		component: AidSign,
+		meta: {
+			title: '分享补签'
+		}
 	},
 	{
 		path: '/login',
@@ -24,17 +30,26 @@ const routes = [
 	{
 		path: '/my_welfare',
 		name: 'my_welfare',
-		component: () => import('@/views/MyWelfare')
+		component: () => import('@/views/MyWelfare'),
+		meta: {
+			title: '我的福利'
+		}
 	},
 	{
 		path: '/store_list',
 		name: 'store_list',
-		component: () => import('@/views/StoreList')
+		component: () => import('@/views/StoreList'),
+		meta: {
+			title: '全部商铺'
+		}
 	},
 	{
 		path: '/welfare_exchange',
 		name: 'welfare_exchange',
-		component: () => import('@/views/WelfareExchange')
+		component: () => import('@/views/WelfareExchange'),
+		meta: {
+			title: '福利兑换'
+		}
 	}
 ]
 

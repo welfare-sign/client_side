@@ -2,8 +2,8 @@
     <div class="user-info">
         <div class="content">
             <div class="user">
-                <x-img :default-src="avatar" class="avatar" />
-                <h2>欢迎 James</h2>
+                <x-img :default-src="info.headimgurl ? info.headimgurl : avatar" class="avatar" />
+                <h2>欢迎 {{info.nickname}}</h2>
             </div>
             <button class="btn" @click="toWelfare">
                 <x-img class="icon-gift" :default-src="iconGift" />
@@ -19,6 +19,12 @@
  */
 export default {
     name: 'UserInfo',
+    props: {
+        info: {
+            type: Object,
+            required: true
+        }
+    },
     data() {
         return {
             avatar: require('@/assets/avatar.jpg'),

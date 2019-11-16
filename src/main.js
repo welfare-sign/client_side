@@ -4,6 +4,7 @@ import router from './router'
 
 // 插件
 import './plugins/vux'
+import './plugins/wechat-title'
 
 // 样式
 import 'reset-css'
